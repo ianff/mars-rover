@@ -11,12 +11,16 @@ repositories {
 }
 
 dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+
     testCompile 'org.junit.jupiter:junit-jupiter-api:5.2.0'
     testCompile 'org.mockito:mockito-core:2.18.3'
     testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
     testCompile 'org.mockito:mockito-junit-jupiter:2.19.0'
 
     testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
 }
 
 test {
