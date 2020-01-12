@@ -20,4 +20,8 @@ public class MarsRover {
   public Direction getDirection() {
     return direction;
   }
+
+  public void moveForward() {
+    location = new Location(location.getX(),location.getY() + 1);
+  }
 }
