@@ -132,4 +132,60 @@ class MarsRoverTest {
     assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
     assertEquals(Orientation.WEST, marsRover.getOrientation());
   }
+
+  @Test
+  void should_face_to_south_when_turn_left_given_the_rover_already_landed_and_face_to_west() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Orientation orientation = Orientation.WEST;
+
+    MarsRover marsRover = new MarsRover(location, orientation);
+    marsRover.turn("L");
+
+    assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
+    assertEquals(Orientation.SOUTH, marsRover.getOrientation());
+  }
+
+  @Test
+  void should_face_to_north_when_turn_right_given_the_rover_already_landed_and_face_to_west() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Orientation orientation = Orientation.WEST;
+
+    MarsRover marsRover = new MarsRover(location, orientation);
+    marsRover.turn("R");
+
+    assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
+    assertEquals(Orientation.NORTH, marsRover.getOrientation());
+  }
+
+  @Test
+  void should_face_to_north_when_turn_left_given_the_rover_already_landed_and_face_to_east() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Orientation orientation = Orientation.EAST;
+
+    MarsRover marsRover = new MarsRover(location, orientation);
+    marsRover.turn("L");
+
+    assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
+    assertEquals(Orientation.NORTH, marsRover.getOrientation());
+  }
+
+  @Test
+  void should_face_to_south_when_turn_right_given_the_rover_already_landed_and_face_to_east() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Orientation orientation = Orientation.EAST;
+
+    MarsRover marsRover = new MarsRover(location, orientation);
+    marsRover.turn("R");
+
+    assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
+    assertEquals(Orientation.SOUTH, marsRover.getOrientation());
+  }
 }

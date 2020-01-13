@@ -32,7 +32,10 @@ public enum Orientation {
     if(orientationCode.equals(SOUTH.getOrientationCode())) {
       return EAST;
     }
-    return null;
+    if(orientationCode.equals(WEST.getOrientationCode())) {
+      return SOUTH;
+    }
+    return NORTH;
   }
 
   public Orientation turnRight() {
@@ -42,6 +45,9 @@ public enum Orientation {
     if(orientationCode.equals(SOUTH.getOrientationCode())) {
       return WEST;
     }
-    return null;
+    if(orientationCode.equals(WEST.getOrientationCode())) {
+      return NORTH;
+    }
+    return SOUTH;
   }
 }
