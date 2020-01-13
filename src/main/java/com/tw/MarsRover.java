@@ -31,6 +31,8 @@ public class MarsRover {
   public void turn(String direction) {
     if(direction.equals(Direction.LEFT.getDirectionCode())) {
       orientation = orientation.turnLeft();
+    } else {
+      orientation = orientation.turnRight();
     }
   }
 }

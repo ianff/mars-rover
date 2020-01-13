@@ -32,4 +32,10 @@ public enum Orientation {
     return null;
   }
 
+  public Orientation turnRight() {
+    if(orientationCode.equals(NORTH.getOrientationCode())) {
+      return EAST;
+    }
+    return null;
+  }
 }
