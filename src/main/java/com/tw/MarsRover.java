@@ -2,6 +2,7 @@ package com.tw;
 
 import com.tw.model.Direction;
 import com.tw.model.Location;
+import com.tw.service.MoveForwardInstruction;
 
 public class MarsRover {
 
@@ -22,10 +23,7 @@ public class MarsRover {
   }
 
   public void moveForward() {
-    if(direction == Direction.SOUTH) {
-      location = new Location(location.getX(),location.getY() - 1);
-    } else {
-      location = new Location(location.getX(), location.getY() + 1);
-    }
+    MoveForwardInstruction moveForwardInstruction = direction.getMoveForwardInstruction();
+    location = moveForwardInstruction.moveForward(location);
   }
 }
