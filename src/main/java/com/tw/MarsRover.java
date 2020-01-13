@@ -30,9 +30,9 @@ public class MarsRover {
 
   public void turn(String direction) {
     if(direction.equals(Direction.LEFT.getDirectionCode())) {
-      orientation = orientation.turnLeft();
+      orientation = orientation.left();
     } else {
-      orientation = orientation.turnRight();
+      orientation = orientation.right();
     }
   }
 }

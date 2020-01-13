@@ -25,7 +25,7 @@ public enum Orientation {
     return moveForwardInstruction;
   }
 
-  public Orientation turnLeft() {
+  public Orientation left() {
     if(orientationCode.equals(NORTH.getOrientationCode())) {
       return WEST;
     }
@@ -38,7 +38,7 @@ public enum Orientation {
     return NORTH;
   }
 
-  public Orientation turnRight() {
+  public Orientation right() {
     if(orientationCode.equals(NORTH.getOrientationCode())) {
       return EAST;
     }
