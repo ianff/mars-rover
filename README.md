@@ -9,3 +9,57 @@ Mars Rover
 + 转向指令：火星车可以左转90度（L）或右转90度（R）。
 
 由于地球和火星之间的距离很远，指令必须批量发送，火星车执行完整批指令之后，再回报自己所在的位置坐标和朝向。
+
+Tasks
+-------
+given: initial landed information, location(x, y), direction(N, S, E, W)
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5), direction = N
+
+given: the rover already landed with current location(10.2, 40.5) and direction = N, and given move forward instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 41.5)(x, y + 1), direction = N
+
+given: the rover already landed with current location(10.2, 40.5) and direction = S, and given move forward instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 39.5)(x, y - 1), direction = S
+
+given: the rover already landed with current location(10.2, 40.5) and direction = W, and given move forward instruction
+when: doInstruction
+then: return location and direction(x, y) = (9.2, 40.5)(x - 1, y), direction = W
+
+given: the rover already landed with current location(10.2, 40.5) and direction = E, and given move forward instruction
+when: doInstruction
+then: return location and direction(x, y) = (11.2, 40.5)(x + 1, y), direction = E
+
+given: the rover already landed with current location(10.2, 40.5) and direction = N, and given left turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = W
+
+given: the rover already landed with current location(10.2, 40.5) and direction = N, and given right turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = E
+
+given: the rover already landed with current location(10.2, 40.5) and direction = S, and given left turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = E
+
+given: the rover already landed with current location(10.2, 40.5) and direction = S, and given right turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = W
+
+given: the rover already landed with current location(10.2, 40.5) and direction = W, and given left turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = S
+
+given: the rover already landed with current location(10.2, 40.5) and direction = W, and given right turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = N
+
+given: the rover already landed with current location(10.2, 40.5) and direction = E, and given left turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = N
+
+given: the rover already landed with current location(10.2, 40.5) and direction = S, and given right turn instruction
+when: doInstruction
+then: return location and direction(x, y) = (10.2, 40.5)(x, y), direction = S
