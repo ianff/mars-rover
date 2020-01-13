@@ -29,12 +29,18 @@ public enum Orientation {
     if(orientationCode.equals(NORTH.getOrientationCode())) {
       return WEST;
     }
+    if(orientationCode.equals(SOUTH.getOrientationCode())) {
+      return EAST;
+    }
     return null;
   }
 
   public Orientation turnRight() {
     if(orientationCode.equals(NORTH.getOrientationCode())) {
       return EAST;
+    }
+    if(orientationCode.equals(SOUTH.getOrientationCode())) {
+      return WEST;
     }
     return null;
   }
