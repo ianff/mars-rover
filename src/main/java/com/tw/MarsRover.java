@@ -1,29 +1,36 @@
 package com.tw;
 
 import com.tw.model.Direction;
+import com.tw.model.Orientation;
 import com.tw.model.Location;
 import com.tw.service.MoveForwardInstruction;
 
 public class MarsRover {
 
   private Location location;
-  private Direction direction;
+  private Orientation orientation;
 
-  public MarsRover(Location location, Direction direction) {
+  public MarsRover(Location location, Orientation orientation) {
     this.location = location;
-    this.direction = direction;
+    this.orientation = orientation;
   }
 
   public Location getLocation() {
     return location;
   }
 
-  public Direction getDirection() {
-    return direction;
+  public Orientation getOrientation() {
+    return orientation;
   }
 
   public void moveForward() {
-    MoveForwardInstruction moveForwardInstruction = direction.getMoveForwardInstruction();
+    MoveForwardInstruction moveForwardInstruction = orientation.getMoveForwardInstruction();
     location = moveForwardInstruction.moveForward(location);
+  }
+
+  public void turn(String direction) {
+    if(direction.equals(Direction.LEFT.getDirectionCode())) {
+      orientation = orientation.turnLeft();
+    }
   }
 }

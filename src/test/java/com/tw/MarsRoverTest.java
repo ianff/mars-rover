@@ -1,6 +1,6 @@
 package com.tw;
 
-import com.tw.model.Direction;
+import com.tw.model.Orientation;
 import com.tw.model.Location;
 import org.junit.jupiter.api.Test;
 
@@ -13,12 +13,12 @@ class MarsRoverTest {
     double x = 10.2;
     double y = 40.5;
     Location location = new Location(x, y);
-    Direction direction = Direction.NORTH;
+    Orientation orientation = Orientation.NORTH;
 
-    MarsRover marsRover = new MarsRover(location, direction);
+    MarsRover marsRover = new MarsRover(location, orientation);
 
     assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
-    assertEquals(Direction.NORTH, marsRover.getDirection());
+    assertEquals(Orientation.NORTH, marsRover.getOrientation());
   }
 
   @Test
@@ -26,13 +26,13 @@ class MarsRoverTest {
     double x = 10.2;
     double y = 40.5;
     Location location = new Location(x, y);
-    Direction direction = Direction.NORTH;
+    Orientation orientation = Orientation.NORTH;
 
-    MarsRover marsRover = new MarsRover(location, direction);
+    MarsRover marsRover = new MarsRover(location, orientation);
     marsRover.moveForward();
 
     assertEquals(new Location(10.2, 41.5), marsRover.getLocation());
-    assertEquals(Direction.NORTH, marsRover.getDirection());
+    assertEquals(Orientation.NORTH, marsRover.getOrientation());
   }
 
   @Test
@@ -40,13 +40,13 @@ class MarsRoverTest {
     double x = 10.2;
     double y = 40.5;
     Location location = new Location(x, y);
-    Direction direction = Direction.SOUTH;
+    Orientation orientation = Orientation.SOUTH;
 
-    MarsRover marsRover = new MarsRover(location, direction);
+    MarsRover marsRover = new MarsRover(location, orientation);
     marsRover.moveForward();
 
     assertEquals(new Location(10.2, 39.5), marsRover.getLocation());
-    assertEquals(Direction.SOUTH, marsRover.getDirection());
+    assertEquals(Orientation.SOUTH, marsRover.getOrientation());
   }
 
   @Test
@@ -54,13 +54,13 @@ class MarsRoverTest {
     double x = 10.2;
     double y = 40.5;
     Location location = new Location(x, y);
-    Direction direction = Direction.WEST;
+    Orientation orientation = Orientation.WEST;
 
-    MarsRover marsRover = new MarsRover(location, direction);
+    MarsRover marsRover = new MarsRover(location, orientation);
     marsRover.moveForward();
 
     assertEquals(new Location(9.2, 40.5), marsRover.getLocation());
-    assertEquals(Direction.WEST, marsRover.getDirection());
+    assertEquals(Orientation.WEST, marsRover.getOrientation());
   }
 
   @Test
@@ -68,12 +68,26 @@ class MarsRoverTest {
     double x = 10.2;
     double y = 40.5;
     Location location = new Location(x, y);
-    Direction direction = Direction.EAST;
+    Orientation orientation = Orientation.EAST;
 
-    MarsRover marsRover = new MarsRover(location, direction);
+    MarsRover marsRover = new MarsRover(location, orientation);
     marsRover.moveForward();
 
     assertEquals(new Location(11.2, 40.5), marsRover.getLocation());
-    assertEquals(Direction.EAST, marsRover.getDirection());
+    assertEquals(Orientation.EAST, marsRover.getOrientation());
+  }
+
+  @Test
+  void should_turn_left_when_turn_left_given_the_rover_already_landed_and_face_to_north() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Orientation orientation = Orientation.NORTH;
+
+    MarsRover marsRover = new MarsRover(location, orientation);
+    marsRover.turn("L");
+
+    assertEquals(new Location(10.2, 40.5), marsRover.getLocation());
+    assertEquals(Orientation.WEST, marsRover.getOrientation());
   }
 }

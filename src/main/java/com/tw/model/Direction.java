@@ -1,28 +1,15 @@
 package com.tw.model;
 
-import com.tw.service.*;
-
 public enum Direction {
-
-  NORTH("N", new MoveToNorth()),
-  SOUTH("S", new MoveToSouth()),
-  WEST("W", new MoveToWest()),
-  EAST("W", new MoveToEast());
+  LEFT("L");
 
   private String directionCode;
-  private MoveForwardInstruction moveForwardInstruction;
 
-  Direction(String directionCode, MoveForwardInstruction moveForwardInstruction) {
+  Direction(String directionCode) {
     this.directionCode = directionCode;
-    this.moveForwardInstruction = moveForwardInstruction;
   }
 
   public String getDirectionCode() {
     return directionCode;
   }
-
-  public MoveForwardInstruction getMoveForwardInstruction() {
-    return moveForwardInstruction;
-  }
-
 }
