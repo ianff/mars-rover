@@ -22,6 +22,10 @@ public class MarsRover {
   }
 
   public void moveForward() {
-    location = new Location(location.getX(),location.getY() + 1);
+    if(direction == Direction.SOUTH) {
+      location = new Location(location.getX(),location.getY() - 1);
+    } else {
+      location = new Location(location.getX(), location.getY() + 1);
+    }
   }
 }

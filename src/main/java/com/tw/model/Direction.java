@@ -2,7 +2,8 @@ package com.tw.model;
 
 public enum Direction {
 
-  NORTH("N", "North");
+  NORTH("N", "North"),
+  SOUTH("S", "South");
 
   private String directionCode;
   private String direction;
