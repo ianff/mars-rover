@@ -62,4 +62,18 @@ class MarsRoverTest {
     assertEquals(new Location(9.2, 40.5), marsRover.getLocation());
     assertEquals(Direction.WEST, marsRover.getDirection());
   }
+
+  @Test
+  void should_move_forward_when_do_instruction_given_the_rover_already_landed_and_face_to_east_and_move_forward_instruction() {
+    double x = 10.2;
+    double y = 40.5;
+    Location location = new Location(x, y);
+    Direction direction = Direction.EAST;
+
+    MarsRover marsRover = new MarsRover(location, direction);
+    marsRover.moveForward();
+
+    assertEquals(new Location(11.2, 40.5), marsRover.getLocation());
+    assertEquals(Direction.EAST, marsRover.getDirection());
+  }
 }
