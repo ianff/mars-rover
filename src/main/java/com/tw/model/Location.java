@@ -28,4 +28,10 @@ public class Location {
       orientation = Orientation.WEST;
     }
   }
+
+  public void right() {
+    if(orientation.equals(Orientation.NORTH)) {
+      orientation = Orientation.EAST;
+    }
+  }
 }
