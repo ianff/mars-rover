@@ -6,6 +6,7 @@ import com.tw.model.Orientation;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.tw.MarsRover.land;
@@ -215,5 +216,20 @@ class MarsRoverTest {
 
     assertEquals(new Coordinate(10.2, 40.5), marsRover.getLocation().getCoordinate());
     assertEquals(Orientation.SOUTH, marsRover.getLocation().getOrientation());
+  }
+
+  @Test
+  void should_be_in_82_and_395_and_facing_to_west_when_receive_instructions_given_the_rover_landed() {
+    Orientation orientation = Orientation.NORTH;
+    Coordinate coordinate = new Coordinate(10.2, 40.5);
+    Location location = new Location(orientation, coordinate);
+    List<String> instructions = new ArrayList<>();
+    instructions.addAll(Arrays.asList("L", "M", "M", "L", "M", "R"));
+
+    MarsRover marsRover = land(location);
+    marsRover.followInstructions(instructions);
+
+    assertEquals(new Coordinate(8.2, 39.5), marsRover.getLocation().getCoordinate());
+    assertEquals(Orientation.WEST, marsRover.getLocation().getOrientation());
   }
 }
