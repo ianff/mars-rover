@@ -88,4 +88,20 @@ class MarsRoverTest {
     assertEquals(new Coordinate(11.2, 40.5), marsRover.getLocation().getCoordinate());
     assertEquals(Orientation.EAST, marsRover.getLocation().getOrientation());
   }
+
+  @Test
+  void should_face_to_west_when_receive_turn_left_instruction_given_the_rover_face_to_north() {
+    Orientation orientation = Orientation.NORTH;
+    Coordinate coordinate = new Coordinate(10.2, 40.5);
+    Location location = new Location(orientation, coordinate);
+    List<String> instructions = new ArrayList<>();
+    String turnLeftInstruction = "L";
+    instructions.add(turnLeftInstruction);
+
+    MarsRover marsRover = land(location);
+    marsRover.followInstructions(instructions);
+
+    assertEquals(new Coordinate(10.2, 40.5), marsRover.getLocation().getCoordinate());
+    assertEquals(Orientation.WEST, marsRover.getLocation().getOrientation());
+  }
 }

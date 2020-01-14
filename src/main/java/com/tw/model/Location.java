@@ -22,4 +22,10 @@ public class Location {
       coordinate = new Coordinate(coordinate.getX() + 1, coordinate.getY());
     }
   }
+
+  public void left() {
+    if(orientation.equals(Orientation.NORTH)) {
+      orientation = Orientation.WEST;
+    }
+  }
 }
