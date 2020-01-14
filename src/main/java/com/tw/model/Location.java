@@ -14,6 +14,12 @@ public class Location {
   public void upfront() {
     if(orientation.equals(Orientation.NORTH)) {
       coordinate = new Coordinate(coordinate.getX(), coordinate.getY() + 1);
+    } else if(orientation.equals(Orientation.SOUTH)) {
+      coordinate = new Coordinate(coordinate.getX(), coordinate.getY() - 1);
+    } else if(orientation.equals(Orientation.WEST)) {
+      coordinate = new Coordinate(coordinate.getX() - 1, coordinate.getY());
+    } else {
+      coordinate = new Coordinate(coordinate.getX() + 1, coordinate.getY());
     }
   }
 }

@@ -40,4 +40,52 @@ class MarsRoverTest {
     assertEquals(new Coordinate(10.2, 41.5), marsRover.getLocation().getCoordinate());
     assertEquals(Orientation.NORTH, marsRover.getLocation().getOrientation());
   }
+
+  @Test
+  void should_decrease_y_by_1_when_receive_move_forward_instruction_given_the_rover_landed() {
+    Orientation orientation = Orientation.SOUTH;
+    Coordinate coordinate = new Coordinate(10.2, 40.5);
+    Location location = new Location(orientation, coordinate);
+    List<String> instructions = new ArrayList<>();
+    String moveForwardInstruction = "M";
+    instructions.add(moveForwardInstruction);
+
+    MarsRover marsRover = land(location);
+    marsRover.followInstructions(instructions);
+
+    assertEquals(new Coordinate(10.2, 39.5), marsRover.getLocation().getCoordinate());
+    assertEquals(Orientation.SOUTH, marsRover.getLocation().getOrientation());
+  }
+
+  @Test
+  void should_decrease_x_by_1_when_receive_move_forward_instruction_given_the_rover_landed() {
+    Orientation orientation = Orientation.WEST;
+    Coordinate coordinate = new Coordinate(10.2, 40.5);
+    Location location = new Location(orientation, coordinate);
+    List<String> instructions = new ArrayList<>();
+    String moveForwardInstruction = "M";
+    instructions.add(moveForwardInstruction);
+
+    MarsRover marsRover = land(location);
+    marsRover.followInstructions(instructions);
+
+    assertEquals(new Coordinate(9.2, 40.5), marsRover.getLocation().getCoordinate());
+    assertEquals(Orientation.WEST, marsRover.getLocation().getOrientation());
+  }
+
+  @Test
+  void should_increase_x_by_1_when_receive_move_forward_instruction_given_the_rover_landed() {
+    Orientation orientation = Orientation.EAST;
+    Coordinate coordinate = new Coordinate(10.2, 40.5);
+    Location location = new Location(orientation, coordinate);
+    List<String> instructions = new ArrayList<>();
+    String moveForwardInstruction = "M";
+    instructions.add(moveForwardInstruction);
+
+    MarsRover marsRover = land(location);
+    marsRover.followInstructions(instructions);
+
+    assertEquals(new Coordinate(11.2, 40.5), marsRover.getLocation().getCoordinate());
+    assertEquals(Orientation.EAST, marsRover.getLocation().getOrientation());
+  }
 }
