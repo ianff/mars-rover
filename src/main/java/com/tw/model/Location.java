@@ -26,12 +26,24 @@ public class Location {
   public void left() {
     if(orientation.equals(Orientation.NORTH)) {
       orientation = Orientation.WEST;
+    } else if (orientation.equals(Orientation.SOUTH)) {
+      orientation = Orientation.EAST;
+    } else if (orientation.equals(Orientation.WEST)) {
+      orientation = Orientation.SOUTH;
+    } else {
+      orientation = Orientation.NORTH;
     }
   }
 
   public void right() {
     if(orientation.equals(Orientation.NORTH)) {
       orientation = Orientation.EAST;
+    } else if (orientation.equals(Orientation.SOUTH)) {
+      orientation = Orientation.WEST;
+    } else if (orientation.equals(Orientation.WEST)) {
+      orientation = Orientation.NORTH;
+    } else {
+      orientation = Orientation.SOUTH;
     }
   }
 }
