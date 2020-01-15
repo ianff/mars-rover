@@ -2,7 +2,6 @@ package com.tw;
 
 import com.tw.command.Command;
 import com.tw.command.CommandGenerator;
-import com.tw.model.Direction;
 import com.tw.model.RoverStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +20,7 @@ public class MarsRover {
   public void followInstructions(List<String> instructions) {
     for(String instruction : instructions) {
       Command command = CommandGenerator.create(instruction);
-      command.doAction(roverStatus);
+      roverStatus = command.doAction(roverStatus);
     }
   }
 }

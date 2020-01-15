@@ -4,7 +4,7 @@ import com.tw.model.RoverStatus;
 
 public class TurnRightCommand implements Command {
   @Override
-  public void doAction(RoverStatus roverStatus) {
-    roverStatus.right();
+  public RoverStatus doAction(RoverStatus roverStatus) {
+    return new RoverStatus(roverStatus.getX(), roverStatus.getY(), roverStatus.getDirection().right());
   }
 }

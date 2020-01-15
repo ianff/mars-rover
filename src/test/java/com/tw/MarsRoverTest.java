@@ -1,7 +1,7 @@
 package com.tw;
 
-import com.tw.model.RoverStatus;
 import com.tw.model.Direction;
+import com.tw.model.RoverStatus;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
