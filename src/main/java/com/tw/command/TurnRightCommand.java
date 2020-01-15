@@ -1,10 +1,10 @@
 package com.tw.command;
 
-import com.tw.model.Location;
+import com.tw.model.RoverStatus;
 
 public class TurnRightCommand implements Command {
   @Override
-  public void doAction(Location location) {
-    location.right();
+  public void doAction(RoverStatus roverStatus) {
+    roverStatus.right();
   }
 }

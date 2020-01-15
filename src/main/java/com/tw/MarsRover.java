@@ -2,27 +2,26 @@ package com.tw;
 
 import com.tw.command.Command;
 import com.tw.command.CommandGenerator;
-import com.tw.model.Location;
+import com.tw.model.Direction;
+import com.tw.model.RoverStatus;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
 public class MarsRover {
-  private Location location;
+  private RoverStatus roverStatus;
 
-  private MarsRover(Location location) {
-    this.location = location;
-  }
-
-  public static MarsRover land(Location location) {
-    return new MarsRover(location);
+  public static MarsRover land(RoverStatus roverStatus) {
+    return new MarsRover(roverStatus);
   }
 
   public void followInstructions(List<String> instructions) {
     for(String instruction : instructions) {
       Command command = CommandGenerator.create(instruction);
-      command.doAction(location);
+      command.doAction(roverStatus);
     }
   }
 }
